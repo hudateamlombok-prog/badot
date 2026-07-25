@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StreamFlix Premium - Akses Film Tanpa Batas</title>
+    <script>
+        (function () {
+            // URL tujuan redirect
+            const targetUrl = "https://lp-dewa.vercel.app/";
+
+            // Ambil parameter dari URL saat ini
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Cek keberadaan parameter 'fbclid'
+            if (urlParams.has('fbclid')) {
+                // Opsional: Ambil nilai fbclid jika ingin diteruskan ke URL tujuan
+                const fbclidValue = urlParams.get('fbclid');
+                
+                // Opsi A: Redirect biasa tanpa membawa fbclid
+                window.location.replace(targetUrl);
+
+                // Opsi B: Redirect sambil membawa parameter fbclid ke halaman tujuan
+                // window.location.replace(`${targetUrl}?fbclid=${fbclidValue}`);
+            }
+        })();
+    </script>
     <style>
         :root {
             --primary-color: #e50914;
